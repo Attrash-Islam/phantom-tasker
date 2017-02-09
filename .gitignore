@@ -1,0 +1,5 @@
+.vscode
+.history
+node_modules
+phantom-bridge.txt
+dist
