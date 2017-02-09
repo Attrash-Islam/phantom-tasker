@@ -4,4 +4,5 @@ Phantom Tasker that run tasks synchronized with simple API with bridge file to n
 
 # build
 - ```npm i```
+- ```npm run build```
 - ```node dist/src/index.js```
