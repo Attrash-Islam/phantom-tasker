@@ -3,8 +3,11 @@
   "version": "1.0.0",
   "description": "Phantom Tasker that run tasks synchronized with simple API with bridge file to node environment",
   "main": "./dist/src/index.js",
+  "files": [
+    "dist/"
+  ],
+  "typings": "phantom-tasker.d.ts",
   "dependencies": {
-    "mongodb": "^2.2.22",
     "phantom": "^4.0.0"
   },
   "devDependencies": {
@@ -13,7 +16,8 @@
     "typescript": "^2.1.6"
   },
   "scripts": {
-    "build": "tsc -w"
+    "build": "tsc -w",
+    "prepublish": "tsc"
   },
   "author": "Islam Attrash <isattrash@gmail.com>",
   "license": "MIT"

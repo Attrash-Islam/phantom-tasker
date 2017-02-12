@@ -8,10 +8,9 @@ import {
 } from 'fs';
 import { createInterface } from 'readline';
 import { execSync } from 'child_process';
-import config from '../bot.config';
 import { resolve as pathResolver } from 'path';
 import { IPhantomTasksConfig } from '../Interfaces/IPhantomTasksConfig';
-const PHANTOM_BRIDGE = pathResolver(__dirname, '..', '..') + '/phantom-bridge.txt';
+const PHANTOM_BRIDGE = pathResolver(__dirname) + '/phantom-bridge.txt';
 
 export default class PhantomTasker {
 
@@ -31,7 +30,7 @@ export default class PhantomTasker {
         await this.start();
     }
 
-    async startNodeBot() {
+    private async startNodeBot() {
         return new Promise((resolve, reject) => {
             console.log(`NodeJS bot is checking phantom-bridge file...`);
             if(isFileExists(PHANTOM_BRIDGE)) {
@@ -57,7 +56,7 @@ export default class PhantomTasker {
     }
 
 
-    async startPhantomBot() {
+    private async startPhantomBot() {
         console.log(`PhantomJS bot started scanning the web...`);
         this.instance = await createPhantom();
         const page = await this.instance.createPage();
@@ -82,6 +81,6 @@ export default class PhantomTasker {
 
 }
 
-
-const app = new PhantomTasker(config, (line) => console.log(line));
-app.start();
+// import config from '../bot.config';
+// const app = new PhantomTasker(config, (line) => console.log(line));
+// app.start();

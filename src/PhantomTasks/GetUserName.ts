@@ -9,8 +9,11 @@ export default class GetUserName implements IPhantomTask {
 
     async start() {
         this.page.evaluate(function() {
-            window.callPhantom({type: 'facebook-welcome-box', value: document.querySelector('.fbxWelcomeBoxSmallRow').innerText.trim()});
-            window.callPhantom({type: 'USE_REDUCERS_ACTION_PAYLOADS'}); // All reducers action payload can ge into callPhantom
+            const welcomeFBBox = <HTMLElement> document.querySelector('.fbxWelcomeBoxSmallRow');
+            if (welcomeFBBox) {
+                (window as any).callPhantom({type: 'facebook-welcome-box', value: welcomeFBBox.innerText.trim()});
+                (window as any).callPhantom({type: 'USE_REDUCERS_ACTION_PAYLOADS'}); // All reducers action payload can ge into callPhantom
+            }
         });
         return this.page;
     }

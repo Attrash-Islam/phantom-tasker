@@ -17,9 +17,9 @@ export default class Login implements IPhantomTask {
                 emailInput.value = 'fustuq.store@gmail.com';
                 passwordInput.value = 'xxxxxxx';
                 loginButton.click();
-                window.callPhantom({type: 'LoginStatus', value: 'In Facebook!'});
+                (window as any).callPhantom({type: 'LoginStatus', value: 'In Facebook!'});
             } else {
-                window.callPhantom({type: 'Error', value: 'Not in Login page!'});
+                (window as any).callPhantom({type: 'Error', value: 'Not in Login page!'});
             }
         });
         return this.page;
