@@ -3,3 +3,4 @@
 node_modules
 phantom-bridge.txt
 dist
+npm-debug.log

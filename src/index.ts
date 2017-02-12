@@ -80,7 +80,3 @@ export default class PhantomTasker {
     }
 
 }
-
-// import config from '../bot.config';
-// const app = new PhantomTasker(config, (line) => console.log(line));
-// app.start();
