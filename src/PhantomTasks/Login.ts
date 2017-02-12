@@ -1,7 +1,8 @@
+import { IPhantomTask } from '../../Interfaces/IPhantomTask';
 
-export default class Login {
+export default class Login implements IPhantomTask {
     
-    private page:any;
+    public page:any;
     constructor(page) {
         this.page = page;
     }
@@ -13,8 +14,8 @@ export default class Login {
             const passwordInput = <HTMLInputElement> document.querySelector('#pass');
             const loginButton = <HTMLElement> document.querySelector('#loginbutton');
             if(emailInput && passwordInput && loginButton) {
-                emailInput.value = 'xxxx@yyyy.zzzz';
-                passwordInput.value = 'xxxxx';
+                emailInput.value = 'fustuq.store@gmail.com';
+                passwordInput.value = 'xxxxxxx';
                 loginButton.click();
                 window.callPhantom({type: 'LoginStatus', value: 'In Facebook!'});
             } else {

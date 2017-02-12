@@ -10,19 +10,23 @@ import { createInterface } from 'readline';
 import { execSync } from 'child_process';
 import config from '../bot.config';
 import { resolve as pathResolver } from 'path';
+import { IPhantomTasksConfig } from '../Interfaces/IPhantomTasksConfig';
 const PHANTOM_BRIDGE = pathResolver(__dirname, '..', '..') + '/phantom-bridge.txt';
 
-class App {
+export default class PhantomTasker {
 
     private instance:any;
+    private tasksConfig:IPhantomTasksConfig;
+    private nodeBotCallback:Function;
 
-    constructor() {
-
+    constructor(tasksConfig:IPhantomTasksConfig, nodeBotCallback:Function) {
+        this.tasksConfig = tasksConfig;
+        this.nodeBotCallback = nodeBotCallback;
     }
 
     async start() {
         await this.startNodeBot();
-        await sleep(config.BotIntervalInSeconds * 1000);
+        await sleep(this.tasksConfig.BotIntervalInSeconds * 1000);
         await this.startPhantomBot();
         await this.start();
     }
@@ -37,9 +41,7 @@ class App {
                 });
 
                 rl.on('line', (line) => {
-                    const payload = JSON.parse(line);
-                    console.log(line);
-                    // rootReducer(payload); [DEAL with Phantom env. output]
+                    this.nodeBotCallback(line);
                 });
 
                 rl.on('close', () => {
@@ -62,17 +64,13 @@ class App {
 
         try {
 
-            //Phantom Bot
-            await page.open('https://www.facebook.com/');
-
-
             page.property('onCallback', function(payload, PHANTOM_BRIDGE) {
                 var fs = require('fs');
                 fs.write(PHANTOM_BRIDGE, JSON.stringify(payload) + '\n', 'a');
             }, PHANTOM_BRIDGE);
             
-            for(let i = 0; i < config.PhantomTasks.length; i++) {
-                let task = config.PhantomTasks[i];
+            for(let i = 0; i < this.tasksConfig.PhantomTasks.length; i++) {
+                let task = this.tasksConfig.PhantomTasks[i];
                 await new task(page).start();
                 await sleep(5000);
             }
@@ -85,5 +83,5 @@ class App {
 }
 
 
-const app = new App();
+const app = new PhantomTasker(config, (line) => console.log(line));
 app.start();

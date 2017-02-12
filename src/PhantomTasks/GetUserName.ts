@@ -1,7 +1,8 @@
+import { IPhantomTask } from '../../Interfaces/IPhantomTask';
 
-export default class GetUserName {
+export default class GetUserName implements IPhantomTask {
 
-    private page:any;
+    public page:any;
     constructor(page) {
         this.page = page;
     }
