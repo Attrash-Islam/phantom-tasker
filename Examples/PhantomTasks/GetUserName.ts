@@ -1,5 +1,9 @@
 import { IPhantomTask } from '../../Interfaces/IPhantomTask';
 
+/**
+ * Get Facebook username from the welcome box in the left corner
+ * @author Islam Attrash
+ */
 export default class GetUserName implements IPhantomTask {
 
     public page:any;

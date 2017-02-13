@@ -1,5 +1,9 @@
 import { IPhantomTask } from '../../Interfaces/IPhantomTask';
 
+/**
+ * Log in to Facebook with  username (fustuq.store@gmail.com) 
+ * @author Islam Attrash
+ */
 export default class Login implements IPhantomTask {
     
     public page:any;
