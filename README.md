@@ -21,7 +21,7 @@ app.start();
 
 # Concept
 
-The idea is to build a tasker that runs tasks synchronized one after another in interval loop for a configurable period of time. The main problem between phantom environment and node environment is that there's no link between the both, and some people have taken the mocking of console.log approach which I don't prefer it. The concept here is to write to a bridge file which will write all stringified ```window.callPhantom``` calls, and then after finishing the tasks the node will fetch the bridge file "line-by-line" and will parse them again to JSON objects that can give data, commands and more.
+The idea is to build a tasker that runs tasks synchronized one after another in interval loop for a configurable period of time. The main problem between phantom environment and node environment is that there's no link between the both, and some people have taken the mocking of console.log approach which I don't prefer it. The concept here is to write to a bridge file which will contain all stringified ```window.callPhantom``` calls (We pass JSON objects - Redux-like payloads), and then after finishing the tasks the node will fetch the bridge file "line-by-line" and will parse them again to JSON objects that can give data, commands and more.
 
 See Examples in "Examples" folder
 
