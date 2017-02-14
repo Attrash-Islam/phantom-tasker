@@ -1,6 +1,6 @@
 {
   "name": "phantom-tasker",
-  "version": "1.0.0",
+  "version": "1.0.2",
   "description": "Phantom Tasker that run tasks synchronized with simple API with bridge file to node environment",
   "main": "./dist/src/index.js",
   "files": [

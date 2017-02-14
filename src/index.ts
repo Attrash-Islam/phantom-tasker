@@ -77,7 +77,7 @@ export default class PhantomTasker {
                 });
 
                 rl.on('line', (line) => {
-                    this.nodeBotCallback(line);
+                    this.nodeBotCallback(JSON.parse(line));
                 });
 
                 rl.on('close', () => {
