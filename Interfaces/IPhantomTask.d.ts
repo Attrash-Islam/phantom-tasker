@@ -16,10 +16,9 @@ export interface IPhantomTask {
 }
 
 /**
- * Phantom Task constructor interface
+ * Phantom Task Class interface
  * @author Islam Attrash
  */
-export interface IPhantomTaskConstructor {
-    /** Constructor */
-    new(page:any):IPhantomTask;
+export interface IPhantomTaskClass {
+    new():IPhantomTask;
 }

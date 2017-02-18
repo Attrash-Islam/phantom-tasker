@@ -1,4 +1,4 @@
-import { IPhantomTaskConstructor } from './IPhantomTask';
+import { IPhantomTaskClass } from './IPhantomTask';
 
 /**
  * PhantomJS Tasks Configuration interface
@@ -13,5 +13,5 @@ export interface IPhantomTasksConfig {
     /**
      * PhantomJS Tasks to run synchronously one after another
      */
-    PhantomTasks: Array<IPhantomTaskConstructor>
+    PhantomTasks: Array<IPhantomTaskClass>
 }

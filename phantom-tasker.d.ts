@@ -42,7 +42,7 @@ interface IPhantomTasksConfig {
     /**
      * PhantomJS Tasks to run synchronously one after another
      */
-    PhantomTasks: Array<IPhantomTaskConstructor>
+    PhantomTasks: Array<IPhantomTask>
 }
 
 
@@ -63,12 +63,10 @@ interface IPhantomTask {
     start():Promise<any>;
 }
 
-
 /**
- * Phantom Task constructor interface
+ * Phantom Task Class interface
  * @author Islam Attrash
  */
-interface IPhantomTaskConstructor {
-    /** Constructor */
-    new(page:any):IPhantomTask;
+interface IPhantomTaskClass {
+    new():IPhantomTask
 }

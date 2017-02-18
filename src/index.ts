@@ -111,7 +111,9 @@ export default class PhantomTasker {
             
             for(let i = 0; i < this.tasksConfig.PhantomTasks.length; i++) {
                 let task = this.tasksConfig.PhantomTasks[i];
-                await new task(page).start();
+                let taskObject = new task();
+                taskObject.page = page;
+                await taskObject.start();
                 await sleep(5000);
             }
 

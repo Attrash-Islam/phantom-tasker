@@ -7,9 +7,6 @@ import { IPhantomTask } from '../../Interfaces/IPhantomTask';
 export default class GetUserName implements IPhantomTask {
 
     public page:any;
-    constructor(page) {
-        this.page = page;
-    }
 
     async start() {
         this.page.evaluate(function() {
