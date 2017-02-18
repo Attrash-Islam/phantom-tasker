@@ -4,7 +4,7 @@
   "description": "Phantom Tasker that run tasks synchronized with simple API with bridge file to node environment",
   "main": "./dist/src/index.js",
   "files": [
-    "dist/",
+    "dist/src/",
     "phantom-tasker.d.ts"
   ],
   "typings": "phantom-tasker.d.ts",
