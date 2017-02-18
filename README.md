@@ -25,7 +25,7 @@ The idea is to build a tasker that runs tasks synchronized one after another in 
 
 See Examples in "Examples" folder
 
-# Video
+# Video (With the initial commit - Changes maybe happen in the future)
 <a href="https://www.youtube.com/watch?v=n5ANnYK4iMw">
   <img src="https://i.ytimg.com/vi/n5ANnYK4iMw/hqdefault.jpg?custom=true&w=336&h=188&stc=true&jpg444=true&jpgq=90&sp=68&sigh=cWMD-VZXm3USk6DBNns_K-jjz38"/>
 </a>
