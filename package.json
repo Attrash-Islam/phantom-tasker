@@ -1,6 +1,6 @@
 {
   "name": "phantom-tasker",
-  "version": "1.0.3",
+  "version": "1.0.4",
   "description": "Phantom Tasker that run tasks synchronized with simple API with bridge file to node environment",
   "main": "./dist/src/index.js",
   "files": [
@@ -14,11 +14,14 @@
   "devDependencies": {
     "@types/node": "^7.0.5",
     "@types/phantom": "^3.2.0",
+    "rimraf": "^2.6.0",
     "typescript": "^2.1.6"
   },
   "scripts": {
-    "build": "tsc -w",
-    "prepublish": "tsc"
+    "clean": "rimraf ./dist",
+    "build:watch": "npm run clean && tsc -w --sourceMap",
+    "build": "npm run clean && tsc --removeComments",
+    "prepublish": "npm run build"
   },
   "author": "Islam Attrash <isattrash@gmail.com>",
   "license": "MIT"
